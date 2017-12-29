@@ -3,7 +3,7 @@
 {% from "_formshelper.html" import render_field %}
 {% block content %}
 
-<form action="{{ url_for('webform') }}" method="post" name="webform">
+<form action="{{ url_for('jinja') }}" method="post" name="webform">
     {{ form.csrf_token }}
      {% for fieldname, value in form.data.items() %}
      {% if fieldname != 'csrf_token' %}
