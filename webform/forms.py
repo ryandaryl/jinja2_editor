@@ -8,6 +8,6 @@ class CodeForm(FlaskForm):
               default='{% for i in data %}\nline {{ i }}<br>\n{% endfor %}'
     )
     pythonobj = TextAreaField(
-              'Paste a Python object here:',
+              'Paste JSON here:',
               default='[1,2,3]'
     )
