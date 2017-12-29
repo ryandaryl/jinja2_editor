@@ -9,7 +9,7 @@
      {% if fieldname != 'csrf_token' %}
      <div class="form-group">
         {{ form[fieldname].label }}
-        {{ render_field(form[fieldname], class="form-control", value='', rows=10) }}
+        {{ render_field(form[fieldname], class="form-control", rows=10) }}
      </div>
      {% endif %}
      {% endfor %}
