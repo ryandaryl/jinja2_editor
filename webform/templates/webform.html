@@ -1,0 +1,23 @@
+{% extends "_base.html" %}
+{% block title %}Jinja2 fiddle{% endblock %}
+{% from "_formshelper.html" import render_field %}
+{% block content %}
+
+<form action="{{ url_for('webform') }}" method="post" name="webform">
+    {{ form.csrf_token }}
+     {% for fieldname, value in form.data.items() %}
+     {% if fieldname != 'csrf_token' %}
+     <div class="form-group">
+        {{ form[fieldname].label }}
+        {{ render_field(form[fieldname], class="form-control", value='', rows=10) }}
+     </div>
+     {% endif %}
+     {% endfor %}
+    <input type="submit" value="Submit" class="btn btn-lg btn-success">
+</form>
+
+{% if show_link %}
+The HTML is&nbsp<a href="{{ url_for('jinja') }}">here</a>.
+{% endif %}
+
+{% endblock %}

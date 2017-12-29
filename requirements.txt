@@ -1,0 +1,5 @@
+Flask==0.12
+Flask-WTF==0.13
+gunicorn==19.6.0
+WTForms==2.0.2
+requests==2.18.4
