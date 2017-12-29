@@ -22,14 +22,7 @@ def webform():
     show_link = False
     if request.method == 'POST':
         new_template(form.data['html'])
-        show_link = True
-    """Render code form"""
+        data = json.loads(form.data['pythonobj']) if form.data['pythonobj'] else []
+        return render_template('new_template.html', data=data)
+    """Render the form"""
     return render_template('webform.html', form=form, show_link=show_link)
-
-@app.route('/jinja', methods=['GET', 'POST'])
-def jinja():
-    form = CodeForm(request.form)
-    if request.method == 'POST':
-        new_template(form.data['html'])
-    """Render code form"""
-    return render_template('new_template.html', data=json.loads(form.data['pythonobj']))
